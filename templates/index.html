@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html >
+<!--From https://codepen.io/frytyler/pen/EGdtg-->
+<head>
+  <meta charset="UTF-8">
+  <title>ML API</title>
+  <link href='https://fonts.googleapis.com/css?family=Pacifico' rel='stylesheet' type='text/css'>
+<link href='https://fonts.googleapis.com/css?family=Arimo' rel='stylesheet' type='text/css'>
+<link href='https://fonts.googleapis.com/css?family=Hind:300' rel='stylesheet' type='text/css'>
+<link href='https://fonts.googleapis.com/css?family=Open+Sans+Condensed:300' rel='stylesheet' type='text/css'>
+  
+</head>
+
+<body>
+ <div class="login">
+	<h1>Predict Salary Analysis</h1>
+
+     <!-- Main Input For Receiving Query to our ML -->
+    <form action="{{ url_for('predict')}}"method="post">
+        <input type="text" name="Item_Weight" placeholder="item_weight" required="required" />
+        
+        <label for="fat">Item_Fat_Content</label>
+        <select id="fat" name="fat">
+          <option value="0">Low Fat</option>
+          <option value="1">Regular</option>
+          <!-- <option value="2">Tier 3</option> -->
+        </select>
+        <!-- <input type="text" name="item_fat_content" placeholder="item_fat_content" required="required" /> -->
+        <input type="text" name="Item_MRP" placeholder="item_mrp" required="required" />
+
+        <label for="size">Outlet_Size</label>
+    <select id="size" name="size">
+      <option value="0">High</option>
+      <option value="1">Medium</option>
+      <option value="2">Small</option>
+    </select>
+        
+    <!-- <input type="text" name="outlet_size" placeholder="outlet_size" required="required" /> -->
+    
+    
+    <label for="location">Outlet_Location_Type</label>
+    <select id="location" name="location">
+      <option value="0">Tier 1</option>
+      <option value="1">Tier 2</option>
+      <option value="2">Tier 3</option>
+    </select>
+    <!-- <input type="text" name="location_type" placeholder="location_type" required="required" /> -->
+   
+		<!-- <input type="text" name="type" placeholder="type" required="required" /> -->
+
+        <button type="submit" class="btn btn-primary btn-block btn-large">Predict</button>
+    </form>
+
+   <br>
+   <br>
+   {{ prediction_text }}
+
+ </div>
+
+
+</body>
+</html>
